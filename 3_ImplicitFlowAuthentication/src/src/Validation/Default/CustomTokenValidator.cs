@@ -44,8 +44,8 @@ namespace IdentityServer4.Validation.Default
 
         public override Task<TokenValidationResult> ValidateAccessTokenAsync(string token, string expectedScope = null)
         {
-            var decryptedToken = Crypto.Decrypt(token);
-            return base.ValidateAccessTokenAsync(decryptedToken, expectedScope);
+            //var decryptedToken = Crypto.Decrypt(token);
+            return base.ValidateAccessTokenAsync(token, expectedScope);
         }
     }
 }

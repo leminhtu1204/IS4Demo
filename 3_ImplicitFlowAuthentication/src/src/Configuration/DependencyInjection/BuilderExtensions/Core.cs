@@ -149,7 +149,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             builder.Services.TryAddTransient<IPersistedGrantService, DefaultPersistedGrantService>();
             builder.Services.TryAddTransient<IKeyMaterialService, DefaultKeyMaterialService>();
-            builder.Services.TryAddTransient<ITokenService, FernetTokenService>();
+            builder.Services.TryAddTransient<ITokenService, DefaultTokenService>();
             builder.Services.TryAddTransient<ITokenCreationService, DefaultTokenCreationService>();
             builder.Services.TryAddTransient<IClaimsService, DefaultClaimsService>();
             builder.Services.TryAddTransient<IRefreshTokenService, DefaultRefreshTokenService>();

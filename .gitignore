@@ -7,3 +7,7 @@
 /3_ImplicitFlowAuthentication/src/Api/obj/*.cache
 /3_ImplicitFlowAuthentication/src/Api/obj/Debug/netcoreapp2.1
 /3_ImplicitFlowAuthentication/src/Client/obj/Debug/netcoreapp2.1
+/ClientTest02/.vs/ClientTest02/v15
+/ClientTest02/.vs/config
+netcoreapp2.1
+obj
