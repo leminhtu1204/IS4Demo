@@ -1,0 +1,9 @@
+/3_ImplicitFlowAuthentication/src/src/bin
+/3_ImplicitFlowAuthentication/src/src/obj
+/3_ImplicitFlowAuthentication/src/Client/obj/*.cache
+/3_ImplicitFlowAuthentication/.vs/Quickstart/v15/*.suo
+/3_ImplicitFlowAuthentication/.vs/Quickstart/v15/Server/sqlite3/*.lock
+/3_ImplicitFlowAuthentication/.vs/Quickstart/v15/Server/sqlite3
+/3_ImplicitFlowAuthentication/src/Api/obj/*.cache
+/3_ImplicitFlowAuthentication/src/Api/obj/Debug/netcoreapp2.1
+/3_ImplicitFlowAuthentication/src/Client/obj/Debug/netcoreapp2.1
