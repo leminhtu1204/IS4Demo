@@ -1,0 +1,45 @@
+{
+  "name": "src",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "24.0.9",
+    "@types/node": "11.10.5",
+    "@types/react": "16.8.7",
+    "@types/react-dom": "16.8.2",
+    "apollo-boost": "^0.3.1",
+    "apollo-cache-inmemory": "^1.5.1",
+    "apollo-link-context": "^1.0.15",
+    "apollo-link-http": "^1.5.12",
+    "formik": "^1.5.1",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "react": "^16.8.4",
+    "react-apollo": "^2.5.2",
+    "react-dom": "^16.8.4",
+    "react-redux": "^6.0.1",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "typescript": "3.3.3333"
+  },
+  "scripts": {
+    "start": "set REACT_APP_STAGE=dev &&  react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@types/react-redux": "^7.0.2"
+  }
+}
