@@ -12,7 +12,9 @@ const mapStateToProps = (state: AppState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
     return bindActionCreators({
-        selectUser: UserActionCreators.SelectUser
+        selectUser: UserActionCreators.SelectUser,
+        retrievedUsers: UserActionCreators.RetrievedUsers,
+        loadUsers: UserActionCreators.LoadUsers
     }, dispatch)
 }
 

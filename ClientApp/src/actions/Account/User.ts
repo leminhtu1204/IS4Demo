@@ -14,3 +14,9 @@ export const SelectUser = (userId: string) => {
         userId: userId
     };
 };
+
+export const LoadUsers = () => (dispatch: any) => {
+    dispatch({
+        type: ActionTypes.USER_LOADING
+    });
+}

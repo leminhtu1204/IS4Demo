@@ -12,7 +12,7 @@ const initialState: UsersListState = {
 }
 
 const User = (state: UsersListState = initialState, action: UserActionType) => {
-    switch (action.type ) {
+    switch (action.type) {
         case ActionTypes.USERS_RETRIEVED:
             return {
                 ...state,
