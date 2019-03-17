@@ -1,4 +1,4 @@
-import * as ActionTypes from '../../constants/User';
+import * as ActionTypes from '../../constants/ActionTypes/User';
 import User from '../../types/Account/User';
 
 export const RetrievedUsers = (users: User[]) => {

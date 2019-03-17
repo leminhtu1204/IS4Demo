@@ -44,7 +44,6 @@ class UsersList extends Component <UserListProps> {
             <tr>
               <th scope="col">Id</th>
               <th scope="col">Name</th>
-              <th scope="col">Role</th>
             </tr>
           </thead>
           <tbody>

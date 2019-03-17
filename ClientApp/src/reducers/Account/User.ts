@@ -1,4 +1,4 @@
-import * as ActionTypes from '../../constants/User';
+import * as ActionTypes from '../../constants/ActionTypes/User';
 import { UserActionType } from '../../types/Account/UserAction';
 import UsersListState from '../../types/Account/UsersListState';
 

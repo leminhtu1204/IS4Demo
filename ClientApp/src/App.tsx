@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Provider as ReduxProvider } from 'react-redux';
 import client from './utils/ApolloClient';
@@ -8,7 +7,8 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { rootReducer } from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import UsersListContainer from './containers/Account/UsersListContainer';
+import { BrowserRouter } from 'react-router-dom';
+import { Layout } from './components/Shared/Layout';
 
 class App extends Component {
   constructor(props: any) {
@@ -23,7 +23,9 @@ class App extends Component {
     return (
       <ReduxProvider store={store}>
         <ApolloProvider client={client}>
-          <UsersListContainer />
+          <BrowserRouter>
+            <Layout/>
+          </BrowserRouter>
         </ApolloProvider>
       </ReduxProvider>
     );

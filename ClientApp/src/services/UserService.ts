@@ -21,4 +21,18 @@ export default class UserServices {
             fetchPolicy: 'no-cache'
         });
     }
+
+    public getUserById(id: String) {
+        const GET_USER = gql`
+        query {
+            users: users {
+            id,
+            name
+            }
+        }`;
+        return this.client.query<any>({
+            query: GET_USER,
+            fetchPolicy: 'no-cache'
+        });
+    }
 }

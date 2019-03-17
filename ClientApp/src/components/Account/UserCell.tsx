@@ -12,7 +12,6 @@ const UserCell = (props: UserProps) => {
     <tr>
       <td>{user.id}</td>
       <td>{user.name}</td>
-      <td>{user.roles}</td>
     </tr>
   )
 }
