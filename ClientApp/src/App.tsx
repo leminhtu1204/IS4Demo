@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Provider as ReduxProvider } from 'react-redux';
-import client from './utils/ApolloClient';
-import { ApolloProvider } from 'react-apollo';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { rootReducer } from './reducers';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { BrowserRouter } from 'react-router-dom';
-import { Layout } from './components/Shared/Layout';
+import React, { Component } from "react";
+import "./App.css";
+import { Provider as ReduxProvider } from "react-redux";
+import client from "./utils/ApolloClient";
+import { ApolloProvider } from "react-apollo";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
+import { rootReducer } from "./reducers";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { BrowserRouter } from "react-router-dom";
+import { Layout } from "./components/Shared/Layout";
 
 class App extends Component {
   constructor(props: any) {
@@ -16,15 +16,16 @@ class App extends Component {
   }
 
   render() {
-    const store = createStore(rootReducer, composeWithDevTools(
-      applyMiddleware(thunk)
-    ));
+    const store = createStore(
+      rootReducer,
+      composeWithDevTools(applyMiddleware(thunk))
+    );
 
     return (
       <ReduxProvider store={store}>
         <ApolloProvider client={client}>
           <BrowserRouter>
-            <Layout/>
+            <Layout />
           </BrowserRouter>
         </ApolloProvider>
       </ReduxProvider>

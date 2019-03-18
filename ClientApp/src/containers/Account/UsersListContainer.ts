@@ -1,21 +1,27 @@
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { AppState } from '../../reducers';
-import UsersList from '../../components/Account/UsersList';
-import * as UserActionCreators from '../../actions/Account/User';
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { AppState } from "../../reducers";
+import UsersList from "../../components/Account/UsersList";
+import * as UserActionCreators from "../../actions/Account/User";
 
 const mapStateToProps = (state: AppState) => {
-    return {
-        ...state.account
-    };
-}
+  return {
+    ...state.account
+  };
+};
 
 const mapDispatchToProps = (dispatch: any) => {
-    return bindActionCreators({
-        selectUser: UserActionCreators.SelectUser,
-        retrievedUsers: UserActionCreators.RetrievedUsers,
-        loadUsers: UserActionCreators.LoadUsers
-    }, dispatch)
-}
+  return bindActionCreators(
+    {
+      openUserDetail: UserActionCreators.OpenUserDetail,
+      retrievedUsers: UserActionCreators.RetrievedUsers,
+      closeUserDetail: UserActionCreators.CloseUserModal
+    },
+    dispatch
+  );
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersList);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(UsersList);

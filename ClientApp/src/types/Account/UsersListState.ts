@@ -1,7 +1,8 @@
-import User from './User';
+import User from "./User";
 interface UsersListState {
-    users: User[],
-    userId: string;
-};
+  users: User[];
+  user: User;
+  isOpen: boolean;
+}
 
 export default UsersListState;

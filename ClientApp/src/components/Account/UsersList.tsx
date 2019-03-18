@@ -1,42 +1,46 @@
-import React, { Component }  from 'react';
-import {withApollo} from 'react-apollo';
-import BaseProps from '../../types/BaseProps';
+import React, { Component } from "react";
+import { withApollo } from "react-apollo";
+import BaseProps from "../../types/BaseProps";
 
-import * as ActionCreators from '../../actions/Account/User';
-import UsersListState from '../../types/Account/UsersListState';
-import UserCell from './UserCell';
-import UserServices from '../../services/UserService';
+import * as ActionCreators from "../../actions/Account/User";
+import UsersListState from "../../types/Account/UsersListState";
+import UserCell from "./UserCell";
+import UserServices from "../../services/UserService";
+import UserDetail from "./UserDetail";
+import User from "../../types/Account/User";
 
 interface UserListProps extends BaseProps {
-    usersListState: UsersListState;
-    selectUser: typeof ActionCreators.SelectUser;
-    retrievedUsers: typeof ActionCreators.RetrievedUsers;
-    loadUsers: typeof ActionCreators.LoadUsers;
+  usersListState: UsersListState;
+  selectedUser: User;
+  retrievedUsers: typeof ActionCreators.RetrievedUsers;
+  openUserDetail: typeof ActionCreators.OpenUserDetail;
+  closeUserDetail: typeof ActionCreators.CloseUserModal;
 }
 
-class UsersList extends Component <UserListProps> {
+class UsersList extends Component<UserListProps> {
   userService: UserServices;
   constructor(props: UserListProps) {
     super(props);
-    const {client} = this.props;
+    const { client } = this.props;
     this.userService = new UserServices(client);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.userService.getUsers().then(rs => {
-      const {users} = rs.data;
+      const { users } = rs.data;
       this.props.retrievedUsers(users);
-    })
+    });
   }
-  
+
   render() {
-    const usersList = this.props.usersListState;
-    const users = usersList.users.map((user, i) => {
+    const { openUserDetail } = this.props;
+    const { isOpen, user, users } = this.props.usersListState;
+    const { closeUserDetail } = this.props;
+    const usersList = users.map((user, i) => {
       return (
-        <UserCell key={user.id}
-          user={user} />
-      )
-    })
+        <UserCell key={user.id} openUserDetail={openUserDetail} user={user} />
+      );
+    });
     return (
       <div>
         <table className="table">
@@ -46,11 +50,13 @@ class UsersList extends Component <UserListProps> {
               <th scope="col">Name</th>
             </tr>
           </thead>
-          <tbody>
-            {users}
-          </tbody>
+          <tbody>{usersList}</tbody>
         </table>
-        <p>Number of user: {users.length}</p>
+        <UserDetail
+          isOpen={isOpen}
+          selectedUser={user}
+          closeUserDetail={closeUserDetail}
+        />
       </div>
     );
   }
