@@ -22,7 +22,7 @@ namespace Kaplan.Ontrack.ApiGateway.Queries
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 1",
+                            UserName = "User 1",
                             Roles = new List<Role>
                             {
                                 new Role
@@ -36,7 +36,7 @@ namespace Kaplan.Ontrack.ApiGateway.Queries
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 2",
+                            UserName = "User 2",
                             Roles = new List<Role>
                             {
                                 new Role
@@ -49,7 +49,7 @@ namespace Kaplan.Ontrack.ApiGateway.Queries
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 3",
+                            UserName = "User 3",
                             Roles = new List<Role>
                             {
                                 new Role
@@ -62,32 +62,32 @@ namespace Kaplan.Ontrack.ApiGateway.Queries
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 4"
+                            UserName = "User 4"
                         },
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 5"
+                            UserName = "User 5"
                         },
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 6"
+                            UserName = "User 6"
                         },
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 7"
+                            UserName = "User 7"
                         },
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 8"
+                            UserName = "User 8"
                         },
                         new User
                         {
                             Id = Guid.NewGuid().ToString(),
-                            Name = "User 9"
+                            UserName = "User 9"
                         },
                     };
                 }
