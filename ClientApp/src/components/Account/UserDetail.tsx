@@ -1,38 +1,68 @@
 import React from "react";
-import RootModal from "../Modal/RootModal";
-import UserModalContent from "../Modal/UserModalContent";
 import User from "../../types/Account/User";
 
-interface UserDetailProps {
-  isOpen: boolean;
+export interface ModalContentProps {
   selectedUser: User;
   closeUserDetail: any;
 }
 
-export default class UserDetail extends React.Component<UserDetailProps> {
-  constructor(props: UserDetailProps) {
+class UserDetail extends React.Component<ModalContentProps> {
+  constructor(props: ModalContentProps) {
     super(props);
   }
 
+  closeModal = () => {
+    this.props.closeUserDetail();
+  };
+
   render() {
-    const isOpen = this.props.isOpen;
     const selectedUser = this.props.selectedUser;
-    const closeUserDetail = this.props.closeUserDetail;
-    const children = () =>{
-      return ( <UserModalContent
-        selectedUser={selectedUser}
-        closeUserDetail={closeUserDetail}
-      />)
-    }
+    const roleList = selectedUser.roles.map((role, i) => {
+      return (
+        <tr key={i}>
+          <td>{role.name}</td>
+        </tr>
+      );
+    });
     return (
-      <div>
-        <RootModal isOpen={isOpen} title={"User Detail"}>
-          <UserModalContent
-            selectedUser={selectedUser}
-            closeUserDetail={closeUserDetail}
-          />
-        </RootModal>
-      </div>
+      <>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{selectedUser.id}</td>
+              <td>{selectedUser.userName}</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        <h1>roles</h1>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+            </tr>
+          </thead>
+          <tbody>{roleList}</tbody>
+        </table>
+
+        <div className="modal-footer">
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={this.closeModal}
+          >
+            Close
+          </button>
+        </div>
+      </>
     );
   }
 }
+
+export default UserDetail;

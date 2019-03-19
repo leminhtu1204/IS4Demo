@@ -3,18 +3,19 @@ import { withApollo } from "react-apollo";
 import BaseProps from "../../types/BaseProps";
 
 import * as ActionCreators from "../../actions/Account/User";
+import * as ModalActionCreators from "../../actions/Common/Modal";
 import UsersListState from "../../types/Account/UsersListState";
 import UserCell from "./UserCell";
 import UserServices from "../../services/UserService";
-import UserDetail from "./UserDetail";
 import User from "../../types/Account/User";
+import UserModalContent from "./UserDetail";
 
 interface UserListProps extends BaseProps {
   usersListState: UsersListState;
   selectedUser: User;
   retrievedUsers: typeof ActionCreators.RetrievedUsers;
-  openUserDetail: typeof ActionCreators.OpenUserDetail;
-  closeUserDetail: typeof ActionCreators.CloseUserModal;
+  openUserDetail: typeof ModalActionCreators.openModal;
+  closeUserDetail: typeof ModalActionCreators.hideModal;
 }
 
 class UsersList extends Component<UserListProps> {
@@ -34,11 +35,11 @@ class UsersList extends Component<UserListProps> {
 
   render() {
     const { openUserDetail } = this.props;
-    const { isOpen, user, users } = this.props.usersListState;
+    const { users } = this.props.usersListState;
     const { closeUserDetail } = this.props;
     const usersList = users.map((user, i) => {
       return (
-        <UserCell key={user.id} openUserDetail={openUserDetail} user={user} />
+        <UserCell key={i} openUserDetail={openUserDetail} closeUserDetail={closeUserDetail} user={user} />
       );
     });
     return (
@@ -52,11 +53,6 @@ class UsersList extends Component<UserListProps> {
           </thead>
           <tbody>{usersList}</tbody>
         </table>
-        <UserDetail
-          isOpen={isOpen}
-          selectedUser={user}
-          closeUserDetail={closeUserDetail}
-        />
       </div>
     );
   }

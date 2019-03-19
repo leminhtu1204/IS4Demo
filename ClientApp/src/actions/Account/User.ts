@@ -4,28 +4,27 @@ import User from "../../types/Account/User";
 export const RetrievedUsers = (users: User[]) => {
   return {
     type: ActionTypes.USERS_RETRIEVED,
-    users: users
+    users
   };
 };
 
 export const SelectUser = (userId: string) => {
   return {
     type: ActionTypes.USER_SELECTED,
-    userId: userId
+    userId
   };
 };
 
-export const OpenUserDetail = (user: User) => {
+export const UpdateUser = (user: User) => {
   return {
-    type: ActionTypes.USER_SELECTED,
-    isOpen: true,
-    user: user
+    type: ActionTypes.USER_UPDATED,
+    user
   };
 };
 
-export const CloseUserModal = () => {
+export const AddUser = (user: User) => {
   return {
-    type: ActionTypes.USER_MODAL_CLOSE,
-    isOpen: false
+    type: ActionTypes,
+    user
   };
 };

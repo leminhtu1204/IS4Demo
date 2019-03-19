@@ -6,11 +6,11 @@ const initialState: UsersListState = {
   users: [
     {
       id: "1",
-      name: "Linh Nguyen",
+      userName: "Linh Nguyen",
       roles: []
     }
   ],
-  user: { id: "1", name: "", roles: [] },
+  user: { id: "1", userName: "", roles: [] },
   isOpen: false
 };
 

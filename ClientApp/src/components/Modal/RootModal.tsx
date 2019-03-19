@@ -14,6 +14,7 @@ let defaultStyles = {
 };
 Modal.setAppElement("#root");
 const RootModal = (props: any) => {
+  
   const { customStyles } = props;
   const { title } = props;
   const { isOpen } = props;

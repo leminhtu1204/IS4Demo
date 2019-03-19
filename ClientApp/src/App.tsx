@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter } from "react-router-dom";
-import { Layout } from "./components/Shared/Layout";
+import LayoutContainer from './containers/Common/LayoutContainer';
 
 class App extends Component {
   constructor(props: any) {
@@ -25,7 +25,7 @@ class App extends Component {
       <ReduxProvider store={store}>
         <ApolloProvider client={client}>
           <BrowserRouter>
-            <Layout />
+            <LayoutContainer />
           </BrowserRouter>
         </ApolloProvider>
       </ReduxProvider>

@@ -3,11 +3,11 @@ import Role from "./Role";
 export default class User {
     constructor(){
         this.id = '';
-        this.name = '';
+        this.userName = '';
         this.roles = [];
     }
 
     id: string;
-    name: string;
+    userName: string;
     roles: Role[]
 }

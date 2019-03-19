@@ -12,10 +12,10 @@ export default class UserServices {
     const GET_USERS = gql`
       query {
         users {
-          id
-          name
+          id,
+          userName,
           roles {
-            id
+            id,
             name
           }
         }
@@ -32,7 +32,7 @@ export default class UserServices {
       query {
         users: users {
           id
-          name
+          userName
         }
       }
     `;
