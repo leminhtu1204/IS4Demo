@@ -1,0 +1,3 @@
+export const REQUEST_LOGIN = "AUTHEN/REQUEST_LOGIN";
+export const RECEIVE_LOGIN = "AUTHEN/RECEIVE_LOGIN";
+export const LOGOUT = "AUTHEN/LOGOUT";

@@ -28,18 +28,10 @@ const User = (state: UsersListState = initialState, action: UserActionType) => {
         ...state,
         users: action.users
       };
-    case ActionTypes.USER_SELECTED:
+    case ActionTypes.USER_ADDED:
       return {
-        ...state,
-        user: getSelectedUser({ ...state }, action.user),
-        isOpen: action.isOpen
+        ...state
       };
-    case ActionTypes.USER_MODAL_CLOSE:
-      return {
-        ...state,
-        isOpen: action.isOpen
-      };
-
     default:
       return state;
   }

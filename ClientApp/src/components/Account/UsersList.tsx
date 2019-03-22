@@ -8,14 +8,16 @@ import UsersListState from "../../types/Account/UsersListState";
 import UserCell from "./UserCell";
 import UserServices from "../../services/UserService";
 import User from "../../types/Account/User";
-import UserModalContent from "./UserDetail";
+import Role from "../../types/Account/Role";
 
 interface UserListProps extends BaseProps {
   usersListState: UsersListState;
   selectedUser: User;
-  retrievedUsers: typeof ActionCreators.RetrievedUsers;
+  retrievedUsers: typeof ActionCreators.retrievedUsers;
   openUserDetail: typeof ModalActionCreators.openModal;
-  closeUserDetail: typeof ModalActionCreators.hideModal;
+  closeModal: typeof ModalActionCreators.hideModal;
+  saveUser: typeof ActionCreators.saveNewUser;
+  updateUser: typeof ActionCreators.updateUser;
 }
 
 class UsersList extends Component<UserListProps> {
@@ -27,6 +29,10 @@ class UsersList extends Component<UserListProps> {
   }
 
   componentDidMount() {
+    this.loadUsers();
+  }
+
+  private loadUsers() {
     this.userService.getUsers().then(rs => {
       const { users } = rs.data;
       this.props.retrievedUsers(users);
@@ -36,12 +42,22 @@ class UsersList extends Component<UserListProps> {
   render() {
     const { openUserDetail } = this.props;
     const { users } = this.props.usersListState;
-    const { closeUserDetail } = this.props;
+    const { closeModal } = this.props;
+    const fakeRoles: Role[] = [{ id: "111", name: "admin", isChecked:false }, { id: "222", name: "mod", isChecked:false }];
+    const { saveUser } = this.props;
     const usersList = users.map((user, i) => {
       return (
-        <UserCell key={i} openUserDetail={openUserDetail} closeUserDetail={closeUserDetail} user={user} />
+        <UserCell
+          saveUser={saveUser}
+          key={i}
+          openUserDetail={openUserDetail}
+          closeModal={closeModal}
+          user={user}
+          roles={fakeRoles}
+        />
       );
     });
+
     return (
       <div>
         <table className="table">

@@ -3,7 +3,7 @@ import User from "../../types/Account/User";
 
 export interface ModalContentProps {
   selectedUser: User;
-  closeUserDetail: any;
+  closeModal: any;
 }
 
 class UserDetail extends React.Component<ModalContentProps> {
@@ -12,7 +12,7 @@ class UserDetail extends React.Component<ModalContentProps> {
   }
 
   closeModal = () => {
-    this.props.closeUserDetail();
+    this.props.closeModal();
   };
 
   render() {
@@ -38,7 +38,6 @@ class UserDetail extends React.Component<ModalContentProps> {
               <td>{selectedUser.id}</td>
               <td>{selectedUser.userName}</td>
             </tr>
-            
           </tbody>
         </table>
         <h1>roles</h1>

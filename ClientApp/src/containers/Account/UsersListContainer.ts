@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../reducers";
 import UsersList from "../../components/Account/UsersList";
 import * as UserActionCreators from "../../actions/Account/User";
-import { openModal, hideModal } from '../../actions/Common/Modal';
+import * as ModalActionCreators from '../../actions/Common/Modal';
 
 const mapStateToProps = (state: AppState) => {
   return {
@@ -15,9 +15,12 @@ const mapStateToProps = (state: AppState) => {
 const mapDispatchToProps = (dispatch: any) => {
   return bindActionCreators(
     {
-      openUserDetail: openModal,
-      retrievedUsers: UserActionCreators.RetrievedUsers,
-      closeUserDetail: hideModal
+      retrievedUsers: UserActionCreators.retrievedUsers,
+      closeModal: ModalActionCreators.hideModal,
+      saveDelUser: UserActionCreators.saveDelUser,
+      updateUser: UserActionCreators.updateUser,
+      addUser: UserActionCreators.addUser,
+      saveUser: UserActionCreators.saveNewUser
     },
     dispatch
   );

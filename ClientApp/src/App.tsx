@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter } from "react-router-dom";
-import LayoutContainer from './containers/Common/LayoutContainer';
+import AuthenContainer from './containers/Authen/AuthenContainer';
 
 class App extends Component {
   constructor(props: any) {
@@ -20,12 +20,11 @@ class App extends Component {
       rootReducer,
       composeWithDevTools(applyMiddleware(thunk))
     );
-
     return (
       <ReduxProvider store={store}>
         <ApolloProvider client={client}>
           <BrowserRouter>
-            <LayoutContainer />
+            <AuthenContainer />
           </BrowserRouter>
         </ApolloProvider>
       </ReduxProvider>

@@ -6,18 +6,28 @@ interface RetrievedUsersAction {
   users: User[];
 }
 
-interface SelectUserAction {
-  type: typeof ActionTypes.USER_SELECTED;
-  user: User;
-  isOpen: boolean;
+interface DeleteUser {
+  type: typeof ActionTypes.USER_DELETE;
+  userId: string;
 }
 
-interface CloseUserModal {
-  type: typeof ActionTypes.USER_MODAL_CLOSE;
-  isOpen: boolean;
+interface UpdateUser {
+  type: typeof ActionTypes.USER_UPDATED;
+  user: User;
+}
+
+interface AddUser {
+  type: typeof ActionTypes.USER_ADDED;
+  user: User;
+}
+
+interface DeleteUser {
+  type: typeof ActionTypes.USER_DELETE;
+  userId: string;
 }
 
 export type UserActionType =
   | RetrievedUsersAction
-  | SelectUserAction
-  | CloseUserModal;
+  | DeleteUser
+  | UpdateUser
+  | AddUser;
