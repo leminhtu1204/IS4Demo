@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import { rootReducer } from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { BrowserRouter } from "react-router-dom";
-import AuthenContainer from './containers/Authen/AuthenContainer';
+import AuthenticationContainer from './containers/Authentication/AuthenticationContainer';
 
 class App extends Component {
   constructor(props: any) {
@@ -24,7 +24,7 @@ class App extends Component {
       <ReduxProvider store={store}>
         <ApolloProvider client={client}>
           <BrowserRouter>
-            <AuthenContainer />
+            <AuthenticationContainer />
           </BrowserRouter>
         </ApolloProvider>
       </ReduxProvider>

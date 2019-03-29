@@ -1,5 +1,8 @@
 import * as ActionTypes from "../../constants/ActionTypes/User";
+import * as LoadingActionTypes from "../../constants/ActionTypes/Loading";
 import User from "../../types/Account/User";
+import UserServices from "../../services/AccountService/UserService";
+
 
 export const retrievedUsers = (users: User[]) => {
   return {
@@ -7,6 +10,24 @@ export const retrievedUsers = (users: User[]) => {
     users
   };
 };
+
+export const loadUsers = (userService: UserServices) => (dispatch:any) =>{
+  dispatch({
+    type: ActionTypes.USER_LOADING
+  })
+
+  dispatch({
+    type: LoadingActionTypes.SHOW_LOADING
+  })
+
+  userService.getUsers().then(rs => {
+    const { users } = rs.data;
+    dispatch(retrievedUsers(users));
+    dispatch({
+      type: LoadingActionTypes.HIDE_LOADING
+    })
+  });
+}
 
 export const selectUser = (userId: string) => {
   return {

@@ -26,8 +26,13 @@ interface DeleteUser {
   userId: string;
 }
 
+interface LoadingUser {
+  type: typeof ActionTypes.USER_LOADING;
+}
+
 export type UserActionType =
   | RetrievedUsersAction
   | DeleteUser
   | UpdateUser
+  | LoadingUser
   | AddUser;

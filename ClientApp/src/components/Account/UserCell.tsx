@@ -7,7 +7,7 @@ import UserUpdate from "./UserUpdate";
 
 interface UserProps {
   user: User;
-  openUserDetail: any;
+  openModal: any;
   closeModal: any;
   roles: Role[];
   saveUser: any;
@@ -15,7 +15,7 @@ interface UserProps {
 
 const UserCell = (props: UserProps) => {
   const { user } = props;
-  const { openUserDetail } = props;
+  const { openModal } = props;
   const { closeModal } = props;
   const { roles } = props;
   const { saveUser } = props;
@@ -46,21 +46,21 @@ const UserCell = (props: UserProps) => {
       <td>
         <button
           className="btn btn-primary"
-          onClick={() => openUserDetail("User details", modalDetailBody)}
+          onClick={() => openModal("User details", modalDetailBody)}
           style={{ marginRight: "5px" }}
         >
           Detail
         </button>
         <button
           className="btn btn-primary"
-          onClick={() => openUserDetail("User Add", modalAddBody)}
+          onClick={() => openModal("User Add", modalAddBody)}
           style={{ marginRight: "5px" }}
         >
           Add
         </button>
         <button
           className="btn btn-primary"
-          onClick={() => openUserDetail("User Update", modalUpdateBody)}
+          onClick={() => openModal("User Update", modalUpdateBody)}
           style={{ marginRight: "5px" }}
         >
           Update

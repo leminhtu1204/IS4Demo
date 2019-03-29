@@ -10,8 +10,7 @@ const initialState: UsersListState = {
       roles: []
     }
   ],
-  user: { id: "1", userName: "", roles: [] },
-  isOpen: false
+  user: { id: "1", userName: "", roles: [] }
 };
 
 const getSelectedUser = (state: UsersListState, user: any) => {
@@ -32,6 +31,10 @@ const User = (state: UsersListState = initialState, action: UserActionType) => {
       return {
         ...state
       };
+    case ActionTypes.USER_LOADING:
+      return {
+        ...state
+      }
     default:
       return state;
   }

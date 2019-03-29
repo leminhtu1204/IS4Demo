@@ -1,13 +1,23 @@
 import React, { Component } from "react";
-
+import config from "react-global-configuration";
+import authenticateConfig from "../../utils/Configuration";
 export class Home extends Component {
+
+  setConfiguration(){
+    config.set(authenticateConfig, {
+      freeze: false,
+      assign: false
+    });
+  }
+
   render() {
+    this.setConfiguration();
     const login = () => {
-      var authorizationUrl = "http://localhost:5000/connect/authorize";
-      var client_id = "mvc";
-      var redirect_uri = "http://localhost:3000/login";
-      var response_type = "token";
-      var scope = "api01";
+      var authorizationUrl = config.get("authorizationUrl");
+      var client_id = config.get("client_id");
+      var redirect_uri = config.get("redirect_uri");
+      var response_type = config.get("response_type");
+      var scope = config.get("scope");
       var state = Date.now() + "" + Math.random();
       localStorage["state"] = state;
 
@@ -31,15 +41,10 @@ export class Home extends Component {
       window.location.href = url;
     };
 
-    const removeToken = () => {
-      localStorage.removeItem("ACCESS_TOKEN");
-    };
-
     return (
       <>
         <h3>Login</h3>
         <button onClick={login}>LOGIN</button>
-        <button onClick={removeToken}>LOGOUT</button>
       </>
     );
   }
